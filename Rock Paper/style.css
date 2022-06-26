@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background: radial-gradient(
+    circle,
+    hsl(214, 47%, 23%) 10%,
+    hsl(237, 49%, 15%) 60%
+  );
+}
+
+.score-container {
+  display: flex;
+  border: 5px solid hsl(217, 16%, 45%);
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+#btn {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  background-color: hsl(237, 49%, 15%);
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+#btn:hover {
+  background-color: #fff;
+  color: hsl(237, 49%, 15%);
+}
+
+.modal {
+  background-color: #fff;
+  padding: 20px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  position: absolute;
+  left: 40%;
+  flex-direction: column;
+  height: auto;
+  display: none;
+  top: 30%;
+}
+
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close button {
+  cursor: pointer;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.close button:hover {
+  background-color: lightgray;
+}
+
+.score-container .score {
+  text-align: center;
+  margin-left: auto;
+  background-color: #fff;
+  padding-left: 40px;
+  border-radius: 10px;
+  padding-right: 40px;
+  color: hsl(229, 64%, 46%);
+}
+
+.score p {
+  text-transform: uppercase;
+}
+
+.triangle {
+  background-image: url('bg-triangle.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.you-picked {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 70vh;
+}
+
+.lose-win {
+  margin: 100px;
+}
+
+.lose-win button {
+  padding: 15px 50px 15px 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: inherit;
+  text-transform: uppercase;
+  background-color: #fff;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.lose-win h1 {
+  font-size: 40px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.paper-picked,
+.house-picked {
+  cursor: pointer;
+  background-color: #fff;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  text-transform: uppercase;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 25px solid hsl(230, 89%, 62%);
+}
+
+.house-picked-yellow {
+  cursor: pointer;
+  background-color: #fff;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  text-transform: uppercase;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 25px solid hsl(39, 89%, 49%);
+}
+
+.house-picked-red {
+  cursor: pointer;
+  background-color: #fff;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: flex;
+  text-transform: uppercase;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 25px solid hsl(349, 71%, 52%);
+}
+
+.rock {
+  background-color: #fff;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 15px solid hsl(349, 71%, 52%);
+  cursor: pointer;
+  position: relative;
+  left: -1.5%;
+  top: -18%;
+}
+
+.paper {
+  cursor: pointer;
+  background-color: #fff;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 15px solid hsl(230, 89%, 62%);
+  position: relative;
+  left: 2%;
+  top: -18%;
+}
+
+.scissors {
+  background-color: #fff;
+  width: 150px;
+  cursor: pointer;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 15px solid hsl(40, 84%, 53%);
+  position: relative;
+  bottom: -15%;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    display: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+  }
+
+  .modal svg {
+    margin: auto;
+  }
+
+  .triangle {
+    height: 40vh;
+  }
+
+    .rock {
+      left: 5%;
+      top: -35%;
+        width: 100px;
+        height: 100px;
+    }
+
+    .paper {
+        width: 100px;
+        height: 100px;
+        left: -5%;
+        top: -35%;
+    }
+
+    .scissors {
+        width: 100px;
+        height: 100px;
+        bottom: -30%;
+    }
+
+    .score-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .score-container .score {
+        padding: 10px;
+    }
+
+    .house-picked,.paper-picked {
+        width: 200px;
+        height: 130px;
+        border: 10px solid hsl(230, 89%, 62%);
+        font-size: 7px;
+    }
+
+    .you-picked {
+      display: flex;
+      height: 20vh;
+    }
+
+    .house-picked-red {
+        font-size: 7px;
+        width: 200px;
+        height: 130px;
+        border: 10px solid hsl(349, 71%, 52%);
+    }
+
+    .house-picked-red h1 {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .lose-win {
+      margin: 0;
+    }
+
+    .house-picked h1, .paper-picked h1{
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .house-picked-yellow {
+        font-size: 7px;
+        width: 200px;
+        height: 130px;
+        border: 10px solid hsl(40, 84%, 53%);
+    }
+
+    .house-picked-yellow h1 {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .lose-win {
+      position: relative;
+      bottom: -100%;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .lose-win h1{
+        font-size: 40px;
+    }
+
+    .main {
+        margin:0;
+        padding-top: 100px;
+    }
+
+    .lose-win button {
+        font-size: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin: 5px;
+    }
+}
