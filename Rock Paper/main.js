@@ -73,7 +73,6 @@ const paperClick = () => {
     console.log("Computer Choices: Rock", "WIN");
     const playAgainBtn = document.querySelector(".play-again");
     playAgainBtn.addEventListener("click", playAgain);
-    score = score + 1;
     document.getElementById("scores").innerHTML = scoreUpdate();
   } else if (computerChoice[randomNum] == "scissors") {
     output += `<div class="you-picked">
@@ -100,6 +99,7 @@ const paperClick = () => {
     console.log("Computer Choices: Rock", "WIN");
     const playAgainBtn = document.querySelector(".play-again");
     playAgainBtn.addEventListener("click", playAgain);
+    document.getElementById("scores").innerHTML = scoreUpdateLose();
   }
 };
 
@@ -131,6 +131,7 @@ const rockClick = () => {
     console.log("Computer Choices: Rock", "WIN");
     const playAgainBtn = document.querySelector(".play-again");
     playAgainBtn.addEventListener("click", playAgain);
+    document.getElementById("scores").innerHTML = scoreUpdateLose();
   } else if (computerChoice[randomNum] == "rock") {
     output += `<div class="you-picked">
     <div class="house-picked-red">
@@ -239,6 +240,7 @@ const scissorsClick = () => {
     console.log("Computer Choices: Rock", "WIN");
     const playAgainBtn = document.querySelector(".play-again");
     playAgainBtn.addEventListener("click", playAgain);
+    document.getElementById("scores").innerHTML = scoreUpdateLose();
   } else if (computerChoice[randomNum] == "scissors") {
     output += `<div class="you-picked">
     <div class="house-picked-yellow">
@@ -274,6 +276,20 @@ const scoreUpdate = () => {
     return score;
   } else {
     score = score + 1;
+    localStorage.setItem("score", score);
+    return score;
+  }
+};
+
+const scoreUpdateLose = () => {
+  if (score == 0) {
+    return score;
+  } else if (localStorage.getItem("score")) {
+    score = parseInt(localStorage.getItem("score")) - 1;
+    localStorage.setItem("score", score);
+    return score;
+  } else if (!localStorage.getItem("score")) {
+    score = score - 1;
     localStorage.setItem("score", score);
     return score;
   }
